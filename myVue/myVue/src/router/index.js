@@ -1,15 +1,36 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-
+import Toast from '@/components/toast/Toast'
+import Home from '../components/Home/home'
+import Indicator from "@/components/Indicator/Indicator"
+import Loadmore from "@/components/Loadmore/Loadmore"
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    }
-  ]
+    routes: [{
+            path: '/',
+            redirect: {
+                path: '/home',
+                name: 'home'
+            }
+        },
+        {
+            name: "home",
+            path: "/home",
+            component: Home
+        },
+        {
+            path: '/toast',
+            name: 'Toast',
+            component: Toast
+        }, {
+            path: "/indicator",
+            component: Indicator,
+            name: "Indicator"
+        }, {
+            path: "/loadmore",
+            name: "loadmore",
+            component: Loadmore
+        }
+    ]
 })
